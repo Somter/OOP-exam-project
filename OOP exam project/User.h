@@ -14,7 +14,9 @@ public:
 	User() = default;	
 	User(string fio, string addr, string phonumb, string passw, string login): FIO(fio), address(addr), PnoneNumber(phonumb), 
 		pasword(passw), login(login){}	
-	string GetFio();		
+	string GetFio();	
+	string GetPassword();
+	string GetLogin();
 	void Print();				
 };	
 	

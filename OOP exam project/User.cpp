@@ -6,6 +6,16 @@ string User::GetFio()
 	return FIO;	
 }
 
+string User::GetPassword()
+{
+	return pasword;
+}
+
+string User::GetLogin()
+{
+	return login;	
+}
+
 void User::Print()
 {
 	cout << FIO << endl;

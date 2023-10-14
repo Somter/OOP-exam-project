@@ -15,11 +15,12 @@ int main() {
 
 	//for (auto it = users.begin(); it != users.end(); ++it) {
 	//	it->Print();
-	//	cout << endl;
+	//	cout << endl;	
 	//}
 
 	string FIO, address, PnoneNumber, pasword, login;	
 	int choice, count = 0, ChoiceAccaunt;
+	string CheckPaword, CheckLogin;		
 	while (true) {	
 		cout << "Выбирите режим: \n";
 		cout << "1 - Тестируемый\n";
@@ -28,7 +29,8 @@ int main() {
 		cin >> choice; // выбор режима
 		system("cls");
 		switch (choice) {
-		case 1:	// Тестируемый			
+		case 1:	// Тестируемый	
+			// 1. РЕГИСТРАЦИЯ  
 			if (count == 0) {
 				cout << "РЕГИСТРАЦИЯ\n";
 
@@ -54,26 +56,52 @@ int main() {
 				users.push_back(User(FIO, address, PnoneNumber, pasword, login));
 			}
 			else { // count > 0
-				cout << "ВЫБЕРИТЕ УЧЁТНУЮ ЗАПИСЬ\n"; 
+				cout << "ВЫБЕРИТЕ УЧЁТНУЮ ЗАПИСЬ\n";
 				for (int i = 0; i < users.size(); i++) {
 					cout << i << ". " << users[i].GetFio() << endl;
 				}
+				int ChoiceAccaunt;
+				cout << "Ваш выбор: ";
 
-				cout << "Ваш выбор: "; // выбор аккаунта
 				try {
 					cin >> ChoiceAccaunt;
-					if (ChoiceAccaunt > users.size()) {
+					if (ChoiceAccaunt >= users.size() || ChoiceAccaunt < 0) {
 						throw 1;
 					}
 
+					bool loggedIn = false; 
+					int attempts = 3; 
+
+					while (attempts > 0) {
+						cout << "Пароль: ";
+						string CheckPassword;
+						cin >> CheckPassword;
+						cout << "Логин: ";
+						string CheckLogin;
+						cin >> CheckLogin;
+						if (CheckPassword == users[ChoiceAccaunt].GetPassword() && CheckLogin == users[ChoiceAccaunt].GetLogin()) {
+							loggedIn = true; // Вход выполнен успешно
+							break;
+						}
+						cout << "\nДанные указаны неправильно. Попробуйте снова." << endl;
+						attempts--;
+					}
+					if (!loggedIn) {
+						throw false;
+					}
 				}
-				catch (int) { 
+				catch (int) {
 					cout << "Такого пользователя нет\n";
 				}
-				
+				catch (bool) {
+					cout << "Превышено количество попыток входа. Попробуйте позже." << endl;
+					return 0;	
+				}
 			} // count > 0
+			// 2. Тест
+			
 
-
+			cout << "\nhi\n";
 			count++;	
 			break;
 		case 2: // Администратор	
