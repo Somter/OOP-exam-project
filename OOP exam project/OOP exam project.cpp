@@ -1,27 +1,43 @@
 // OOP exam project.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 #include <iostream>
-#include <deque> 
+#include <deque>
 #include <windows.h>	
 #include "User.h"
-#include "Test.h"	
-using namespace std; 
+#include "Test.h"
+#include "Question.h"
+#include "Chapter.h"
+using namespace std;
+class UserTest {
+public:
+	void RunUserTest(deque<Test>& tests) {
+		system("cls");
+		int ChoiceTest;
+		cout << "ВЫБИРИТЕ РАЗДЕЛ ДЛЯ ПРОХОЖДЕНИЯ ТЕСТА\n";
+		for (int i = 0; i < tests.size(); i++) {
+			cout << i << ". " << tests[i].GetName() << endl;
+		}
+		cout << "Ваш выбор: ";
+		cin >> ChoiceTest;
+		system("cls");
+		tests[ChoiceTest].ChoiceChapt();
+	}
+};
 
-int main() { 
+
+int main() {
 	setlocale(LC_ALL, "");
-	deque<User> users;	
-	deque<Test> tests;			
-	
+	deque<User> users;
+	deque<Test> tests;
+	deque<UserTest> user_test;		
+	UserTest userTest;	
 
-	//for (auto it = users.begin(); it != users.end(); ++it) {
-	//	it->Print();
-	//	cout << endl;	
-	//}
+	tests.push_back(Test("Математика", 1, 1, 6, "Элементарная математика", 2));	
+	user_test.push_back(userTest);	
 
-	string FIO, address, PnoneNumber, pasword, login;	
-	int choice, count = 0, ChoiceAccaunt;
-	string CheckPaword, CheckLogin;		
-	while (true) {	
+	string FIO, address, PnoneNumber, pasword, login;
+	int choice, count = 0, ChoiceAccaunt, ChoiceTest;	
+	string CheckPaword, CheckLogin;
+	while (true) {
 		cout << "Выбирите режим: \n";
 		cout << "1 - Тестируемый\n";
 		cout << "2 - Администратор\n";
@@ -30,7 +46,9 @@ int main() {
 		system("cls");
 		switch (choice) {
 		case 1:	// Тестируемый	
+
 			// 1. РЕГИСТРАЦИЯ  
+			
 			if (count == 0) {
 				cout << "РЕГИСТРАЦИЯ\n";
 
@@ -54,6 +72,8 @@ int main() {
 				Sleep(2000);
 				system("cls");
 				users.push_back(User(FIO, address, PnoneNumber, pasword, login));
+				user_test[0].RunUserTest(tests);
+
 			}
 			else { // count > 0
 				cout << "ВЫБЕРИТЕ УЧЁТНУЮ ЗАПИСЬ\n";
@@ -69,18 +89,20 @@ int main() {
 						throw 1;
 					}
 
-					bool loggedIn = false; 
-					int attempts = 3; 
+					bool loggedIn = false;
+					int attempts = 3;
 
 					while (attempts > 0) {
+
 						cout << "Пароль: ";
 						string CheckPassword;
 						cin >> CheckPassword;
 						cout << "Логин: ";
 						string CheckLogin;
 						cin >> CheckLogin;
+
 						if (CheckPassword == users[ChoiceAccaunt].GetPassword() && CheckLogin == users[ChoiceAccaunt].GetLogin()) {
-							loggedIn = true; // Вход выполнен успешно
+							
 							break;
 						}
 						cout << "\nДанные указаны неправильно. Попробуйте снова." << endl;
@@ -95,20 +117,20 @@ int main() {
 				}
 				catch (bool) {
 					cout << "Превышено количество попыток входа. Попробуйте позже." << endl;
-					return 0;	
+					return 0;
 				}
 			} // count > 0
-			// 2. Тест
-			
 
-			cout << "\nhi\n";
-			count++;	
+			// 2. Тесе
+			
+			cout << "\n";	
+			count++;
 			break;
-		case 2: // Администратор	
-		/*	users.push_back(User(FIO, address, PnoneNumber, pasword, login));	
-		for (auto it = users.begin(); it != users.end(); ++it) {
+		case 2: // Администратор
+		users.push_back(User("Luffi", "2", "3", "4", "5"));
+	/*	for (auto it = users.begin(); it != users.end(); ++it) {
 			it->Print();
-			cout << endl;	
+			cout << endl;
 
 		}*/
 			break;
