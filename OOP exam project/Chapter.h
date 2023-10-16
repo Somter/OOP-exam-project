@@ -26,4 +26,5 @@ public:
     int GetColvoCorrectAnswer() const;  
     int GetScoreTestChapt() const;
     int GetScorePlus() const;     
+    void SetColvoCorrectAnswer(int zero); 
 };  

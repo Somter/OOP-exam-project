@@ -1,22 +1,27 @@
 #pragma once
-#include <iostream>	
-#include<string>
-using namespace std;	
+#include <iostream>
+#include <string>
+#include <vector>
+#include "Result.h"
 
-class User{
-protected:
-	string FIO;		
-	string address;
-	string PnoneNumber;	
-	string pasword;
-	string login;	
-public:	
-	User() = default;	
-	User(string fio, string addr, string phonumb, string passw, string login): FIO(fio), address(addr), PnoneNumber(phonumb), 
-		pasword(passw), login(login){}	
-	string GetFio();	
-	string GetPassword();
-	string GetLogin();
-	void Print();				
-};	
-	
+class User {
+private:
+    string FIO;
+    string address;
+    string PhoneNumber;
+    string password;
+    string login;
+    vector<int> completedTests; 
+    vector<Result> testResults; 
+
+public:
+    User(string fio, string addr, string phone, string pass, string log);
+
+    string GetFio() const;
+    string GetPassword() const;
+    string GetLogin() const;
+
+    void AddCompletedTest(int testId);
+    void AddTestResult(Result result);
+};
+

@@ -23,7 +23,7 @@ void Chapter::DefaultQustions()
 void Chapter::StartTest()
 {
     int YourAnswer;  
-    for (int i = 0; i < quest.size(); i++)  
+    for (int i = 0; i < 6; i++)  
     {
             system("cls");  
         	cout << "Вопрос: " << quest[i].GetQustion();
@@ -48,6 +48,7 @@ void Chapter::StartTest()
             }
 
     }
+
 }
 
 int Chapter::GetNumberQuestions() const {
@@ -72,5 +73,10 @@ int Chapter::GetScoreTestChapt() const
 int Chapter::GetScorePlus() const
 {
     return ScorePlus;   
+}
+
+void Chapter::SetColvoCorrectAnswer(int zero) 
+{
+    ColvoCorrectAnswer = zero;  
 }
 

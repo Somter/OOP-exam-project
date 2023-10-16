@@ -1,25 +1,26 @@
 // OOP exam project.cpp : This file contains the 'main' function. Program execution begins and ends there.
 #include <iostream>
 #include <deque>
-#include <windows.h>	
+#include <vector> 
+#include <windows.h>
 #include "User.h"
 #include "Test.h"
 #include "Question.h"
 #include "Chapter.h"
+#include "Result.h" 
 using namespace std;
-
 
 int main() {
 	setlocale(LC_ALL, "");
 	deque<User> users;
 	deque<Test> tests;
 
-	tests.push_back(Test("Математика", 1, 1, 6, "Элементарная математика", 2));	
-
 	string FIO, address, PnoneNumber, pasword, login;
 	int choice, count = 0, ChoiceAccaunt, ChoiceTest;	
 	string CheckPaword, CheckLogin;
 	while (true) {
+		tests.push_back(Test("Математика", 1, 1, 6, "Элементарная математика", 2, count));	
+
 		cout << "Выбирите режим: \n";
 		cout << "1 - Тестируемый\n";
 		cout << "2 - Администратор\n";
@@ -28,7 +29,7 @@ int main() {
 		system("cls");
 		switch (choice) {
 		case 1:	// Тестируемый	
-
+		
 			// 1. РЕГИСТРАЦИЯ  
 			
 			if (count == 0) {
@@ -54,7 +55,7 @@ int main() {
 				Sleep(2000);
 				system("cls");
 				users.push_back(User(FIO, address, PnoneNumber, pasword, login));
-
+	
 				system("cls");
 				int ChoiceTest;
 				cout << "ВЫБИРИТЕ РАЗДЕЛ ДЛЯ ПРОХОЖДЕНИЯ ТЕСТА\n";
@@ -95,7 +96,6 @@ int main() {
 
 						if (CheckPassword == users[ChoiceAccaunt].GetPassword() && CheckLogin == users[ChoiceAccaunt].GetLogin()) {
 
-							tests.push_back(Test("Математика", 1, 1, 6, "Элементарная математика", 2));
 							loggedIn = true;	
 							system("cls");	
 							int ChoiceTest;

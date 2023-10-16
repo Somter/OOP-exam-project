@@ -142,12 +142,14 @@
     <ClCompile Include="Chapter.cpp" />
     <ClCompile Include="OOP exam project.cpp" />
     <ClCompile Include="Question.cpp" />
+    <ClCompile Include="Result.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chapter.h" />
     <ClInclude Include="Question.h" />
+    <ClInclude Include="Result.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
