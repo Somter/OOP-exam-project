@@ -23,7 +23,7 @@ void Chapter::DefaultQustions()
 void Chapter::StartTest()
 {
     int YourAnswer;  
-    for (int i = 0; i < quest.size(); i++) 
+    for (int i = 0; i < quest.size(); i++)  
     {
             system("cls");  
         	cout << "Вопрос: " << quest[i].GetQustion();

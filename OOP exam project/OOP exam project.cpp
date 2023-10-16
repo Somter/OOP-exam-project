@@ -7,32 +7,14 @@
 #include "Question.h"
 #include "Chapter.h"
 using namespace std;
-class UserTest {
-public:
-	void RunUserTest(deque<Test>& tests) {
-		system("cls");
-		int ChoiceTest;
-		cout << "ВЫБИРИТЕ РАЗДЕЛ ДЛЯ ПРОХОЖДЕНИЯ ТЕСТА\n";
-		for (int i = 0; i < tests.size(); i++) {
-			cout << i << ". " << tests[i].GetName() << endl;
-		}
-		cout << "Ваш выбор: ";
-		cin >> ChoiceTest;
-		system("cls");
-		tests[ChoiceTest].ChoiceChapt();
-	}
-};
 
 
 int main() {
 	setlocale(LC_ALL, "");
 	deque<User> users;
 	deque<Test> tests;
-	deque<UserTest> user_test;		
-	UserTest userTest;	
 
 	tests.push_back(Test("Математика", 1, 1, 6, "Элементарная математика", 2));	
-	user_test.push_back(userTest);	
 
 	string FIO, address, PnoneNumber, pasword, login;
 	int choice, count = 0, ChoiceAccaunt, ChoiceTest;	
@@ -58,8 +40,8 @@ int main() {
 
 				cout << "Введите ваш адрес: ";
 				getline(cin, address);
-
-				cout << "Введите ваш номер телефона: ";
+				 
+				cout << "Введите ваш номер телефона: "; 
 				getline(cin, PnoneNumber);
 
 				cout << "Введите ваш пароль: ";
@@ -72,7 +54,17 @@ int main() {
 				Sleep(2000);
 				system("cls");
 				users.push_back(User(FIO, address, PnoneNumber, pasword, login));
-				user_test[0].RunUserTest(tests);
+
+				system("cls");
+				int ChoiceTest;
+				cout << "ВЫБИРИТЕ РАЗДЕЛ ДЛЯ ПРОХОЖДЕНИЯ ТЕСТА\n";
+				for (int i = 0; i < tests.size(); i++) {
+					cout << i << ". " << tests[i].GetName() << endl;
+				}
+				cout << "Ваш выбор: ";
+				cin >> ChoiceTest;
+				tests[ChoiceTest].ChoiceChapt();
+				//system("cls");
 
 			}
 			else { // count > 0
@@ -102,6 +94,19 @@ int main() {
 						cin >> CheckLogin;
 
 						if (CheckPassword == users[ChoiceAccaunt].GetPassword() && CheckLogin == users[ChoiceAccaunt].GetLogin()) {
+
+							tests.push_back(Test("Математика", 1, 1, 6, "Элементарная математика", 2));
+							loggedIn = true;	
+							system("cls");	
+							int ChoiceTest;
+							cout << "ВЫБИРИТЕ РАЗДЕЛ ДЛЯ ПРОХОЖДЕНИЯ ТЕСТА\n";
+							for (int i = 0; i < tests.size(); i++) {
+								cout << i << ". " << tests[i].GetName() << endl;
+							}
+							cout << "Ваш выбор: ";
+							cin >> ChoiceTest;
+							system("cls");
+							tests[ChoiceTest].ChoiceChapt();
 							
 							break;
 						}
