@@ -18,7 +18,3 @@ string User::GetLogin() const {
 void User::AddCompletedTest(int testId) {
     completedTests.push_back(testId);
 }
-
-void User::AddTestResult(Result result) {
-    testResults.push_back(result);
-}

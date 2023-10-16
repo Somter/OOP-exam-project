@@ -65,7 +65,7 @@ int main() {
 				cout << "Ваш выбор: ";
 				cin >> ChoiceTest;
 				tests[ChoiceTest].ChoiceChapt();
-				//system("cls");
+				system("cls");
 
 			}
 			else { // count > 0

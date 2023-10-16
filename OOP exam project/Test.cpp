@@ -28,8 +28,6 @@ void Test::ChoiceChapt()
 
 	cout << "\n" << choice << endl;	
 
-	
-
 	system("cls");
 	if (choice >= 0 && choice < chapt.size()) {
 
@@ -39,20 +37,25 @@ void Test::ChoiceChapt()
 		double percentageCorrect = (static_cast<double>(chapt[choice].GetColvoCorrectAnswer()) / chapt[choice].GetNumberQuestions()) * 100;
 		RezultScore = (percentageCorrect / 100) * 12;
 
-	/*	cout << "Количество правильных ответов: " << chapt[choice].GetColvoCorrectAnswer() << "/" << chapt[choice].GetNumberQuestions() << endl;	
+		cout << "Количество правильных ответов: " << chapt[choice].GetColvoCorrectAnswer() << "/" << chapt[choice].GetNumberQuestions() << endl;	
 		cout << "Процент правильных ответов: " << percentageCorrect << "%" << endl;	
-		cout << "Оценка за пройденный тест: " << RezultScore << "/" << 12 << endl;	*/
+		cout << "Оценка за пройденный тест: " << RezultScore << "/" << 12 << endl;	
 
-		int testId = choice; // Идентификатор выбранного теста
-		int userId = idUser; // Идентификатор текущего пользователя	
+		int resC;
+		resC = chapt[choice].GetColvoCorrectAnswer();	
 
-		// Создание объекта Result с результатами
-		Result testResult(chapt[choice].GetColvoCorrectAnswer(), RezultScore, percentageCorrect, testId);
-	/*	testResult.SetTestId(choice);*/
+		res.push_back(Result(resC, RezultScore, percentageCorrect, choice));
 
-		// Добавление результатов в соответствующего пользователя
-		user[userId].AddCompletedTest(choice);
-		user[userId].AddTestResult(testResult);
+	//	int testId = choice; // Идентификатор выбранного теста
+	//	int userId = idUser; // Идентификатор текущего пользователя	
+
+	//	// Создание объекта Result с результатами
+	//	Result testResult(chapt[choice].GetColvoCorrectAnswer(), RezultScore, percentageCorrect, testId);
+	///*	testResult.SetTestId(choice);*/
+
+	//	// Добавление результатов в соответствующего пользователя
+	//	user[userId].AddCompletedTest(choice);
+	//	user[userId].AddTestResult(testResult);
 	}
 	else {
 		cout << "Недопустимый выбор теста." << endl;

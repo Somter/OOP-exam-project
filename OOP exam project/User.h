@@ -22,6 +22,6 @@ public:
     string GetLogin() const;
 
     void AddCompletedTest(int testId);
-    void AddTestResult(Result result);
+ 
 };
 

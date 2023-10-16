@@ -20,6 +20,7 @@ private:
 	//int grade;	// оценка
 	deque<Chapter> chapt;
 	deque<User> user;	
+	deque<Result> res;	
 
 public:
 	Test() = default;		
