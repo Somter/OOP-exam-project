@@ -37,14 +37,15 @@ int main() {
 	int score;
 	double percentage;		
 
-	while (true) {
-		tests.push_back(Test("Математика", 1, 1, 6, "Элементарная математика", 2 ,count));	
-
-		cout << "Выбирите режим: \n";
+	do {
+		tests.push_back(Test("Математика", 1, 1, 6, "Элементарная математика", 2, count));
+		cout << "Выберите режим: \n";
 		cout << "1 - Тестируемый\n";
 		cout << "2 - Администратор\n";
-		cout << "Ваш быбор: ";
-		cin >> choice; // выбор режима
+		cout << "3 - Выйти из программы\n";
+		cout << "Ваш выбор: ";
+		cin >> choice;	
+
 		system("cls");
 		switch (choice) {
 		case 1:	// Тестируемый	
@@ -69,7 +70,7 @@ int main() {
 				cout << "Введите ваш адрес: ";
 				getline(cin, userAddress);
 				 
-				cout << "Введите ваш номер телефона (10 цифр): ";
+				cout << "Введите ваш номер телефона (10 цифр): "; 
 				while (true) {
 					getline(cin, userPhoneNumber);
 
@@ -248,7 +249,7 @@ int main() {
 
 			break;
 		}
-	}
+	} while (choice != 3);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
