@@ -15,18 +15,22 @@ private:
 	string TestName; // название теста
 	int TestId;	 // номер раздела
 	int idUser;
-	//int quantity;	// количество правильно отвеченный вопросов 
-	//int percent; // процент правильных ответов
-	//int grade;	// оценка
-	deque<Chapter> chapt;
+	deque<Chapter> chapt;	
 	deque<User> user;	
 	deque<Result> res;	
+	int ColvCorrectAnswer;
+	int score;
+	double percentage;	
 
 public:
 	Test() = default;		
 	Test(string name, int id, int idch, int numbQ, string nch, int sc, int idUs);		
 	string GetName();		
 	void ChoiceChapt();	
+
+	int GetColvCorrectAnswer();
+	double Getpercentage();
+	int Getscore();
 };
 
 	

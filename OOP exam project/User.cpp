@@ -1,20 +1,46 @@
 #include "User.h"
-
-User::User(string fio, string addr, string phone, string pass, string log)
-    : FIO(fio), address(addr), PhoneNumber(phone), password(pass), login(log) {}    
-
-string User::GetFio() const {
-    return FIO;
+User::User(string first, string last, string sur, string addr, string phone, string pass, string log) :
+    firstname(first), lastname(last), surname(sur),
+    address(addr), phoneNumber(phone), password(pass), login(log) {
+    // Вы также можете добавить дополнительный код инициализации, если это необходимо.
 }
 
-string User::GetPassword() const {
+string User::GetFirstname() const {
+    return firstname;
+}
+
+string User::GetLastname() const {
+    return lastname;
+}
+
+string User::GetSurname() const {
+    return surname;
+}
+
+string User::GetAddress() const {
+    return address;
+}
+
+string User::GetPhoneNumber() const {
+    return phoneNumber;
+}
+
+string User::GetPassword() const
+{
     return password;
 }
 
-string User::GetLogin() const {
+string User::GetLogin() const
+{
     return login;
 }
 
-void User::AddCompletedTest(int testId) {
-    completedTests.push_back(testId);
-}
+//{
+//    cout << "Количество правильных ответов: " << ColvCorrectAnswer << endl;
+//    cout << "Процент правильных ответов: " << percentage << "%" << endl;
+//    cout << "Оценка за пройденный тест: " << score << endl;
+//}
+//
+//void User::AddCompletedTest(int testId) {
+//    completedTests.push_back(testId);
+//}

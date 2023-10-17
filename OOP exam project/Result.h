@@ -16,6 +16,8 @@ public:
     int GetScore() const;
     double GetPercentage() const;
 
+    void PrintRezult();
+
     // Метод для установки идентификатора теста
     //void SetTestId(int id);
 };

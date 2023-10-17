@@ -18,15 +18,13 @@ void Test::ChoiceChapt()
 {
 	int choice;	
 	int RezultScore;	
-	cout << "\n" << chapt.size() << endl;	
+	system("cls");	
 	cout << "ВЫБИРИТЕ КОНКРЕТНЫЙ ТЕСТ\n";	
 	for (int i = 0; i < chapt.size(); i++) {
 		cout << i << ". " << chapt[i].GetNameChapt() << endl;	
 	}
 	cout << "Ваш выбор: ";
 	cin >> choice;	
-
-	cout << "\n" << choice << endl;	
 
 	system("cls");
 	if (choice >= 0 && choice < chapt.size()) {
@@ -37,28 +35,28 @@ void Test::ChoiceChapt()
 		double percentageCorrect = (static_cast<double>(chapt[choice].GetColvoCorrectAnswer()) / chapt[choice].GetNumberQuestions()) * 100;
 		RezultScore = (percentageCorrect / 100) * 12;
 
-		cout << "Количество правильных ответов: " << chapt[choice].GetColvoCorrectAnswer() << "/" << chapt[choice].GetNumberQuestions() << endl;	
-		cout << "Процент правильных ответов: " << percentageCorrect << "%" << endl;	
-		cout << "Оценка за пройденный тест: " << RezultScore << "/" << 12 << endl;	
-
-		int resC;
-		resC = chapt[choice].GetColvoCorrectAnswer();	
-
-		res.push_back(Result(resC, RezultScore, percentageCorrect, choice));
-
-	//	int testId = choice; // Идентификатор выбранного теста
-	//	int userId = idUser; // Идентификатор текущего пользователя	
-
-	//	// Создание объекта Result с результатами
-	//	Result testResult(chapt[choice].GetColvoCorrectAnswer(), RezultScore, percentageCorrect, testId);
-	///*	testResult.SetTestId(choice);*/
-
-	//	// Добавление результатов в соответствующего пользователя
-	//	user[userId].AddCompletedTest(choice);
-	//	user[userId].AddTestResult(testResult);
+		ColvCorrectAnswer = chapt[choice].GetColvoCorrectAnswer();	
+		percentage = percentageCorrect;	
+		score = RezultScore;
+			
 	}
 	else {
 		cout << "Недопустимый выбор теста." << endl;
 	}
 
+}
+
+int Test::GetColvCorrectAnswer()
+{
+	return ColvCorrectAnswer;
+}
+
+double Test::Getpercentage()
+{
+	return percentage;
+}
+
+int Test::Getscore()
+{
+	return score;	
 }

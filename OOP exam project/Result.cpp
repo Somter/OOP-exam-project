@@ -15,6 +15,12 @@ int Result::GetScore() const {
 double Result::GetPercentage() const {
     return percentage;
 }
+void Result::PrintRezult()
+{
+    cout << "Количество правильных ответов: " << ColvCorrectAnswer << endl;
+    cout << "Процент правильных ответов: " << percentage << "%" << endl;
+    cout << "Оценка за пройденный тест: " << score << endl;
+}
 //
 //void Result::SetTestId(int id) {
 //    testId = id;

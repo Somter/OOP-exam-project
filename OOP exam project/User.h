@@ -6,22 +6,37 @@
 
 class User {
 private:
-    string FIO;
-    string address;
-    string PhoneNumber;
+    string firstname;   
+    string lastname;  
+    string surname;
+    string address; 
+    string phoneNumber;
     string password;
     string login;
-    vector<int> completedTests; 
-    vector<Result> testResults; 
+  //  vector<int> completedTests; 
+   // vector<Result> testResults; 
 
 public:
-    User(string fio, string addr, string phone, string pass, string log);
-
-    string GetFio() const;
+    User(string firstname, string lastname, string surname, string addr, string phone, string pass, string log);
+    string GetFirstname() const;
+    string GetLastname() const;
+    string GetSurname() const;
+    string GetAddress() const;
+    string GetPhoneNumber() const;
     string GetPassword() const;
     string GetLogin() const;
 
-    void AddCompletedTest(int testId);
+  /*  void SetColvCorrectAnswer(int answer);
+    void SetScore(int scr);
+    void Setpercentage(int perc);
+
+    int GetColvCorrectAnswer();
+    int GetScore();
+    int Getpercentage();
+
+    void PrintRezult();*/ 
+
+   
  
 };
 
